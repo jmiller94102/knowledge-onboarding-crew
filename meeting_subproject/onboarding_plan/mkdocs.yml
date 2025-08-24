@@ -1,0 +1,49 @@
+site_name: Onboarding Plan
+site_description: Structured onboarding modules generated from meeting summaries
+site_url: ""
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.tabs
+    - navigation.top
+    - navigation.prune
+    - content.code.annotate
+    - content.tabs.link
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - footnotes
+  - tables
+  - attr_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+extra_javascript:
+  - assets/js/checklist.js
+nav:
+  - Home: index.md
+  - Checklist: checklist.md
+  - Modules:
+      - Claude Code Cli Reference: modules/module-01-claude-code-cli-reference.md
+      - Claude Code Hooks Reference: modules/module-02-claude-code-hooks-reference.md
+      - Claude Code Slash Reference: modules/module-03-claude-code-slash-reference.md
+      - Claude Code Technical Guide: modules/module-04-claude-code-technical-guide.md
+      - Claude Code Masterclass Insights: modules/module-05-claude-code-masterclass-insights.md
+      - Cloud Code Workshop Insights: modules/module-06-cloud-code-workshop-insights.md
+  - Reference:
+      - Claude Code Cli Reference: reference/Claude Code CLI reference.md
+      - Claude Code Hooks Reference: reference/Claude Code Hooks Reference.md
+      - Claude Code Slash Reference: reference/Claude Code Slash reference.md
+      - Claude Code Technical Guide: reference/Claude Code Technical Guide.md
+      - Claude Code Cli Reference Cheatsheet: reference/claude-code-cli-reference-cheatsheet.md
+      - Claude Code Hooks Reference Cheatsheet: reference/claude-code-hooks-reference-cheatsheet.md
+      - Claude Code Slash Reference Cheatsheet: reference/claude-code-slash-reference-cheatsheet.md
+      - Claude Code Technical Guide Cheatsheet: reference/claude-code-technical-guide-cheatsheet.md
+  - Modules (Enriched):
+      - Claude Code Cli Reference: modules_enriched/module-01-claude-code-cli-reference.md
+      - Claude Code Hooks Reference: modules_enriched/module-02-claude-code-hooks-reference.md
+      - Claude Code Slash Reference: modules_enriched/module-03-claude-code-slash-reference.md
+      - Claude Code Technical Guide: modules_enriched/module-04-claude-code-technical-guide.md
+      - Claude Code Masterclass Insights: modules_enriched/module-05-claude-code-masterclass-insights.md
+      - Cloud Code Workshop Insights: modules_enriched/module-06-cloud-code-workshop-insights.md

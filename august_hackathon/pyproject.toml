@@ -1,0 +1,24 @@
+[project]
+name = "august_hackathon"
+version = "0.1.0"
+description = "august-hackathon using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "crewai[tools]>=0.121.1,<1.0.0"
+    ,"python-dotenv>=1.0.1,<2.0.0"
+]
+
+[project.scripts]
+august_hackathon = "august_hackathon.main:run"
+run_crew = "august_hackathon.main:run"
+train = "august_hackathon.main:train"
+replay = "august_hackathon.main:replay"
+test = "august_hackathon.main:test"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "crew"

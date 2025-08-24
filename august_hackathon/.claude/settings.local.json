@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/johnney-fivemiller/CascadeProjects/windsurf-project/meeting_summaries/**)",
+      "Read(//Users/johnney-fivemiller/CascadeProjects/windsurf-project/**)",
+      "Bash(python:*)",
+      "Bash(MEETING_INPUT_DIR=/Users/johnney-fivemiller/CascadeProjects/windsurf-project/meeting_transcripts MEETING_OUTPUT_DIR=/Users/johnney-fivemiller/CascadeProjects/windsurf-project/meeting_summaries python src/august_hackathon/main.py run --force)",
+      "Read(//Users/johnney-fivemiller/CascadeProjects/windsurf-project/meeting_subproject/onboarding_plan/**)",
+      "Read(//Users/johnney-fivemiller/CascadeProjects/windsurf-project/meeting_subproject/onboarding_plan/src/outputs/**)",
+      "Read(//Users/johnney-fivemiller/CascadeProjects/windsurf-project/meeting_subproject/onboarding_plan/src/outputs/**)"
+    ],
+    "deny": [],
+    "ask": [],
+    "additionalDirectories": [
+      "/Users/johnney-fivemiller/CascadeProjects/windsurf-project/meeting_summaries"
+    ]
+  }
+}

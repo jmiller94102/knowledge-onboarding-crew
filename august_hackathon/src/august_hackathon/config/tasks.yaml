@@ -1,0 +1,92 @@
+
+process_meeting_transcript:
+  description: >
+    Read the meeting transcript from {file_path} and create an EXTREMELY DETAILED
+    and COMPREHENSIVE formatted report. Your goal is to capture EVERY piece of 
+    information, no matter how minor it seems. Be VERBOSE and THOROUGH - include
+    conversational nuances, specific quotes, examples given, and preserve the depth 
+    of technical discussions. Aim for comprehensive coverage rather than brevity.
+    
+    Extract and expand on:
+    - ALL participant contributions with specific quotes and context
+    - DETAILED discussion points with full explanations and reasoning
+    - Complete context around decisions including pros/cons discussed
+    - Comprehensive action items with full background and rationale
+    - All references, examples, and tangential discussions mentioned
+    - Background information and technical details shared
+    - Any concerns, questions, or clarifications raised
+    - Specific methodologies, tools, or processes discussed
+    - Direct quotes and conversational exchanges where relevant
+    
+    Structure the content with appropriate markdown formatting including headers,
+    subheaders, bullet points, bold text for emphasis, and tables where applicable.
+    Each major section should contain substantial detail and context.
+
+    At the very top of your output, include two metadata lines used for file naming:
+    Title: A short, human-readable title (max ~8 words) that best describes the meeting.
+    ShortFileName: a concise kebab-case slug derived from the title (lowercase letters, numbers, and hyphens only; no spaces; max ~8 words), e.g., "q3-roadmap-planning".
+  expected_output: >
+    A comprehensive, detailed markdown-formatted knowledge capture report (minimum 1500 words) that includes:
+
+    Title: [short human-readable title]
+    ShortFileName: [kebab-case slug: letters, numbers, hyphens only]
+
+    # Knowledge Capture Report: [Session Title/Topic]
+
+    ## Session Overview
+    - **Date & Time:** [extracted from transcript with any context provided]
+    - **Participants:** [detailed list of attendees with any roles/expertise mentioned]
+    - **Session Type:** [knowledge sharing, training, technical discussion, etc.]
+    - **Duration:** [if available or estimated from content]
+    - **Knowledge Areas Covered:** [main topics and domains discussed]
+
+    ## Content Organization
+    *Organize the remaining content based on the actual flow and topics discussed in the session. Use the most appropriate section headers and structure that naturally fits the content. Include only sections that contain substantial relevant content (minimum 150 words). Possible section types include:*
+
+    ### Knowledge Areas (use descriptive topic-based headers)
+    - **Core Concepts:** [Key ideas, principles, and theoretical foundations]
+    - **Definitions & Terminology:** [Important terms and their meanings in context]
+    - **Practical Applications:** [Real-world usage and implementation examples]
+    - **Expert Insights:** [Quotes and perspectives from experienced participants]
+
+    ### Experience & Practice (when applicable)
+    - **Best Practices:** [Proven approaches and recommendations]
+    - **Common Pitfalls:** [Mistakes to avoid with explanations]
+    - **Lessons Learned:** [Insights from past experiences]
+    - **Success Stories:** [Examples of effective implementations]
+
+    ### Technical Information (when applicable)
+    - **Tools & Technologies:** [Software, systems, and technical solutions discussed]
+    - **Processes & Workflows:** [Step-by-step procedures and methodologies]
+    - **Standards & Guidelines:** [Industry standards or established practices]
+    - **Troubleshooting:** [Problem-solving approaches and solutions]
+
+    ### Learning & Development (when applicable)
+    - **How-To Guides:** [Step-by-step instructions or procedures]
+    - **Resources & References:** [Books, documentation, training materials mentioned]
+    - **Further Learning:** [Areas for additional study or skill development]
+
+    ### Discussion Points (for unstructured content)
+    - **Open Discussions:** [Brainstorming sessions, debates, or exploratory conversations]
+    - **Q&A Sessions:** [Questions asked and answers provided with context]
+    - **Different Perspectives:** [Various viewpoints or approaches presented]
+    - **Contextual Background:** [Important context-setting information]
+
+    ### Additional Sections (create as needed based on content)
+    *Use descriptive headers that match the actual content discussed, such as:*
+    - **[Specific Topic Name]:** [Detailed coverage of topic-specific discussions]
+    - **Industry Trends:** [Market insights and emerging developments]
+    - **Team/Organization Context:** [Specific situational knowledge]
+    - **Problem-Solving Session:** [Collaborative troubleshooting or solution development]
+
+    ## Key Takeaways & Insights
+    [Comprehensive summary of the most important knowledge shared, core principles established, and critical insights gained - minimum 200 words]
+
+    **Important Instructions:**
+    - Organize content based on natural flow and topics actually discussed
+    - Only include sections that have substantial relevant content
+    - Use descriptive, topic-specific headers rather than forcing generic categories
+    - Capture ALL knowledge shared, regardless of how it fits standard categories
+    - Focus on learning outcomes and knowledge transfer over administrative structure
+    - Include informal discussions, tangential insights, and organic conversations that contain valuable knowledge
+  agent: meeting_transcript_analyst

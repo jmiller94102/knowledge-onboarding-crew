@@ -1,0 +1,58 @@
+
+---
+analyze_learning_modules:
+  description: >
+    Read and analyze all learning modules in the folder {folder_path} to
+    identify key topics, learning objectives, and areas that would benefit from additional
+    research and context. Create a comprehensive analysis of what content needs enrichment.
+  expected_output: >
+    A detailed analysis report listing all modules, their main topics,
+    identified knowledge gaps, and specific areas requiring research and enrichment.
+    Include suggestions for types of additional content needed (examples, case studies,
+    recent developments, etc.).
+  agent: learning_content_analyzer
+
+conduct_general_research:
+  description: >
+    Based on the identified topics and gaps from the module analysis, conduct
+    comprehensive internet research using search tools to find relevant, credible
+    information that can enrich the learning content. Focus on finding recent developments,
+    practical examples, and authoritative sources.
+  expected_output: >
+    A comprehensive research report with findings organized by module/topic,
+    including summaries of relevant information, source URLs, publication dates, and
+    recommendations for how each piece of research can enhance the learning materials.
+  agent: research_specialist
+  context:
+  - analyze_learning_modules
+
+perform_advanced_research:
+  description: >
+    Using EXA search capabilities, find specialized, academic, and technical
+    content related to the learning module topics. Focus on finding high-quality,
+    authoritative sources that provide deep insights, cutting-edge research, and expert
+    perspectives that can significantly enhance the educational value.
+  expected_output: >
+    An advanced research report featuring high-quality academic and
+    technical sources, expert insights, recent studies, and specialized content that
+    complements the general research findings. Include detailed source information
+    and credibility assessments.
+  agent: advanced_search_researcher
+  context:
+  - analyze_learning_modules
+
+create_enriched_learning_content:
+  description: >
+    Synthesize all research findings from both general and advanced research
+    to create enriched versions of the learning modules. Integrate the new information
+    seamlessly into the existing content, add proper citations and references, and
+    ensure the enhanced content maintains educational flow and coherence.
+  expected_output: >
+    Complete enriched learning program with enhanced modules containing
+    additional context, examples, recent developments, and insights. Include a comprehensive
+    references section with proper citations for all sources used, organized by module.
+    Provide a summary of enhancements made to each module.
+  agent: content_enrichment_writer
+  context:
+  - conduct_general_research
+  - perform_advanced_research

@@ -1,0 +1,16 @@
+[project]
+name = "onboarding_plan"
+version = "0.1.0"
+description = "Generate onboarding learning plans from meeting summaries"
+requires-python = ">=3.10,<3.13"
+dependencies = [
+  "crewai[tools]>=0.121.1,<1.0.0",
+  "python-dotenv>=1.0.1,<2.0.0",
+]
+
+[project.scripts]
+onboarding-plan = "onboarding_plan.main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

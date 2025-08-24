@@ -1,0 +1,42 @@
+
+catalog_documentation_files:
+  description: >
+    Read all markdown files from the specified {folder_path} and the explicit list
+    of file paths in {files}, creating a comprehensive catalog of the documentation.
+    For each file, extract the title, key topics, main concepts, and content structure.
+    Organize this information to provide a clear overview of all available learning
+    materials. Use the explicit paths in {files} to read each file reliably.
+  expected_output: >
+    A detailed catalog listing all markdown files with their titles, key topics,
+    main concepts, content summaries, and estimated complexity levels, formatted in markdown
+  agent: documentation_reader_and_cataloger
+analyze_learning_content_and_map_knowledge:
+  description: >
+    Analyze the cataloged documentation to identify key learning concepts,
+    skill dependencies, and optimal knowledge progression. Determine which concepts
+    are foundational, intermediate, and advanced. Map relationships between topics
+    and identify logical learning sequences that build upon each other.
+  expected_output: >
+    A comprehensive knowledge map showing concept relationships, learning
+    dependencies, skill progression pathways, and recommended learning sequences with
+    detailed analysis of how topics interconnect
+  agent: content_analyzer_and_knowledge_mapper
+  context:
+  - catalog_documentation_files
+
+design_structured_learning_onboarding_plan:
+  description: >
+    Create a comprehensive, well-structured onboarding plan based on the
+    knowledge mapping analysis. Design separate learning modules with clear learning
+    objectives, activities, assessments, and progression milestones. Each module should
+    have a specific focus and build upon previous modules. Include recommended timeframes,
+    prerequisites, and success criteria for each module.
+  expected_output: >
+    A complete onboarding plan document in markdown format with separate
+    learning modules, each containing: module title, learning objectives, key concepts
+    covered, recommended activities, time estimates, prerequisites, success criteria,
+    and resource references. Include an overall learning journey roadmap and assessment
+    strategy
+  agent: learning_plan_designer
+  context:
+  - analyze_learning_content_and_map_knowledge

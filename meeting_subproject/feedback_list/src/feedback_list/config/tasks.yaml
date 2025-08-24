@@ -1,0 +1,51 @@
+
+analyze_initial_request:
+  description: >
+    Analyze the freeform user request: "{user_request}" and extract all
+    available information including potential request title, details, file mentions,
+    urgency indicators, dates, and requestor name if mentioned. Identify what information
+    is missing for a complete request record.
+  expected_output: >
+    A detailed analysis report containing: 1) All information successfully
+    extracted from the request, 2) List of missing or unclear information needed,
+    3) Initial assessment of request priority and complexity, 4) Suggestions for follow-up
+    questions'
+  agent: request_intake_specialist
+
+generate_clarifying_questions:
+  description: >
+    Based on the initial request analysis, generate a set of intelligent
+    clarifying questions to collect any missing information. Prioritize the most important
+    questions first and structure them in a user-friendly way. Consider the requestor's
+    context and avoid overwhelming them with too many questions at once.
+  expected_output: >
+    A prioritized list of 3-5 clarifying questions that will help complete
+    the request record, formatted in a conversational and user-friendly manner. Include
+    explanations of why each piece of information is needed.
+  agent: requirements_clarification_analyst
+  context:
+  - analyze_initial_request
+
+structure_request_for_board:
+  description: >
+    Using all gathered information from the analysis and any clarifying
+    question responses provided as "{clarification_responses}", create a complete
+    structured request entry for the request board. Fill in all required fields: Request_Title,
+    Request_details, create_new_file (boolean), File_in_question, Requestor_name,
+    Priority, requested_date, and any additional recommended fields.
+  expected_output: >
+    A complete structured request record in the following format:
+    - Request_Title: [clear, concise title]
+    - Request_details: [comprehensive description]
+    - create_new_file: [true/false]
+    - File_in_question: [specific file name or N/A]
+    - Requestor_name: [full name]
+    - Priority: [High/Medium/Low]
+    - requested_date: [YYYY-MM-DD format]
+    - Category: [request category]
+    - Estimated_effort: [Small/Medium/Large]
+    - Dependencies: [any dependencies or N/A]
+  agent: request_board_manager
+  context:
+  - analyze_initial_request
+  - generate_clarifying_questions
